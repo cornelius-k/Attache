@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fields
   resources :sections
   resources :sheets
   resources :dossiers

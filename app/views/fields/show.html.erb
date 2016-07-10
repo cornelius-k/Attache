@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @field.content %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @field.section %>
+</p>
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>
