@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710030507) do
+ActiveRecord::Schema.define(version: 20160710081240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.text     "type"
+    t.text     "content"
+    t.integer  "sheet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sheet_id"], name: "index_blocks_on_sheet_id", using: :btree
+  end
 
   create_table "dossiers", force: :cascade do |t|
     t.text     "title"
@@ -31,5 +40,6 @@ ActiveRecord::Schema.define(version: 20160710030507) do
     t.index ["dossier_id"], name: "index_sheets_on_dossier_id", using: :btree
   end
 
+  add_foreign_key "blocks", "sheets"
   add_foreign_key "sheets", "dossiers"
 end
