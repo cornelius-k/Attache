@@ -1,0 +1,14 @@
+<h1>Editing Dossier</h1>
+
+<%= render 'form', dossier: @dossier %>
+
+<div class="sheets">
+  sheets:
+  <% @dossier.sheets.each do |sheet| %>
+    <%= sheet.title %>
+  <% end %>
+  <%= link_to("New Sheet", new_dossier_sheet_path(@dossier)) %>
+</div>
+
+<%= link_to 'Show', @dossier %> |
+<%= link_to 'Back', dossiers_path %>

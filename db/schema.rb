@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710025629) do
+ActiveRecord::Schema.define(version: 20160710030507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dossiers", force: :cascade do |t|
+    t.text     "title"
+    t.text     "template"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sheets", force: :cascade do |t|
+    t.text     "title"
+    t.text     "template"
+    t.integer  "dossier_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dossier_id"], name: "index_sheets_on_dossier_id", using: :btree
+  end
+
+  add_foreign_key "sheets", "dossiers"
 end
