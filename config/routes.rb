@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sections
   resources :sheets
   resources :dossiers
   root to: 'main#index'
