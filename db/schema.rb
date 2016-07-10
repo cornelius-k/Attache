@@ -10,39 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710024417) do
+ActiveRecord::Schema.define(version: 20160710025629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dossiers", force: :cascade do |t|
-    t.string   "title"
-    t.string   "template"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "fields", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["section_id"], name: "index_fields_on_section_id", using: :btree
-  end
-
-  create_table "sections", force: :cascade do |t|
-    t.string   "type"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sheets", force: :cascade do |t|
-    t.string   "title"
-    t.string   "template"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "fields", "sections"
 end
