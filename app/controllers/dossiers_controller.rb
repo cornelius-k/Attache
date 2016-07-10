@@ -1,5 +1,5 @@
 class DossiersController < ApplicationController
-  before_action :set_dossier, only: [:show, :edit, :update, :destroy]
+  before_action :set_dossier, only: [:show, :edit, :update, :destroy, :as_html, :write]
 
   # GET /dossiers
   # GET /dossiers.json
@@ -58,6 +58,17 @@ class DossiersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dossiers_url, notice: 'Dossier was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def as_html
+    render text: @dossier.html_content
+  end
+
+  def write
+    directory = Rails.public_path
+    File.open(File.join(directory, 'doss.html'), 'w') do |f|
+      f.puts render_to_string :show
     end
   end
 
