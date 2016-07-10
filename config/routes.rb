@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  resources :fields
-  resources :sections
-  resources :sheets
-  resources :dossiers
+  
+  resources :dossiers do
+    resources :sheets
+  end
+
+  resources :sheets do
+    resources :sections
+  end
+
+  resources :sections do
+    resources :fields
+  end
+
   root to: 'main#index'
 
   get 'hello_world', to: 'hello_world#index'
