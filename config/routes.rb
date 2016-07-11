@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :sheets
   end
 
+  get 'blocks/:type' => 'blocks#get_template', as: 'block_template'
+
   root to: 'main#index'
 
   get 'hello_world', to: 'hello_world#index'
