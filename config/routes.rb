@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   get 'blocks/:type' => 'blocks#get_template', as: 'block_template'
 
-  root to: 'main#index'
+  get 'dossiers/:id/preview' => 'dossiers#preview'
+  get 'dossiers/:id/preview/:sheet_template' => 'dossiers#preview'
+
+  root to: 'dossiers#index'
 
   get 'hello_world', to: 'hello_world#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

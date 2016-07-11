@@ -1,5 +1,5 @@
 class DossiersController < ApplicationController
-  before_action :set_dossier, only: [:show, :edit, :update, :destroy, :as_html, :write]
+  before_action :set_dossier, only: [:show, :edit, :update, :destroy, :as_html, :write, :preview]
 
   # GET /dossiers
   # GET /dossiers.json
@@ -72,6 +72,10 @@ class DossiersController < ApplicationController
     end
   end
 
+  def preview
+    @sheet = @dossier.sheets.where(template: params[:sheet_template]).first
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dossier
@@ -80,6 +84,6 @@ class DossiersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dossier_params
-      params.require(:dossier).permit(:title, :template)
+      params.require(:dossier).permit(:title, :template, :sheet_template)
     end
 end

@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-10 center-block">
+
+    <div class="row">
+      <div class="header-nav col-xs-12">
+        <div class="top-bar center-block">Title Text</div>
+        <div class="nav center-block">
+          <% @dossier.sheets.each do |sheet| %>
+            <a href="<%= sheet.template %>"
+              <span class="sheet-icon <%= sheet.template %>">
+                <%= sheet.template %>
+              </span>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 sheet-title"><h1><%= @sheet.title %></h1></div>
+    </div>
+
+    <div class="row">
+      <div class="blocks-area">
+        <%= raw @sheet.markup %>
+      </div>
+    </div>
+  </div>
+</div>
