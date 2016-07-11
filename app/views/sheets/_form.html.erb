@@ -26,6 +26,14 @@
     <%= f.text_field :dossier_id %>
   </div>
 
+
+  <div class="field">
+    Blocks
+    <%= raw sheet.blocks.to_json %>
+    <%= link_to "Add Block", block_template_path(:type => 'top_ioi'), :remote => true %>
+    <div id="blocks-area"></div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
