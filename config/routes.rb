@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :dossiers do
-    member { get 'as_html', 'write'}
+    member { get 'as_html', 'write', 'publish'}
     resources :sheets
   end
 

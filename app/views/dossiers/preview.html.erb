@@ -6,7 +6,7 @@
         <div class="top-bar center-block">Title Text</div>
         <div class="nav center-block">
           <% @dossier.sheets.each do |sheet| %>
-            <a href="<%= sheet.template %>"
+            <a href="<%= sheet.template %>.html"
               <span class="sheet-icon <%= sheet.template %>">
                 <%= sheet.template %>
               </span>

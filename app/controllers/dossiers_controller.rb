@@ -67,9 +67,19 @@ class DossiersController < ApplicationController
 
   def write
     directory = Rails.public_path
-    File.open(File.join(directory, 'doss.html'), 'w') do |f|
-      f.puts render_to_string :show
+    @dossier.sheets.each do |sheet|
+      File.open(File.join(directory, sheet.template + '.html'), 'w') do |f|
+        @sheet = sheet
+        f.puts render_to_string :preview, locals: {sheet: sheet,
+          sheet_template: sheet.template}
+      end
     end
+  end
+
+  def publish
+    require_relative '../lib/s3folderupload.rb'
+    @uploader = S3FolderUpload.new(Rails.public_path, 'dev-report.mari.mdaus.com')
+    @uploader.upload!
   end
 
   def preview
