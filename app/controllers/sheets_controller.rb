@@ -44,7 +44,7 @@ class SheetsController < ApplicationController
   def update
     respond_to do |format|
       if @sheet.update(sheet_params)
-        format.html { redirect_to dossier_sheet_path(@dossier, @sheet), notice: 'Sheet was successfully updated.' }
+        format.html { redirect_to dossier_sheet_path(@dossier, @sheet), notice: 'Sheet was successfully updated. ' + sheet_params.to_json }
         format.json { render :show, status: :ok, location: dossier_sheet_path(@dossier, @sheet) }
       else
         format.html { render :edit }
@@ -76,6 +76,6 @@ class SheetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sheet_params
-      params.require(:sheet).permit(:title, :template, :dossier_id)
+      params.require(:sheet).permit(:title, :template, :dossier_id, :markup)
     end
 end

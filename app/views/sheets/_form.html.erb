@@ -28,13 +28,15 @@
 
 
   <div class="field">
-    Blocks
-    <%= raw sheet.blocks.to_json %>
+    <%= f.label :markup %>
     <%= link_to "Add Block", block_template_path(:type => 'top_ioi'), :remote => true %>
-    <div id="blocks-area"></div>
+    <div id="blocks-area">
+      <%= raw sheet.markup %>
+    </div>
+    <%= f.hidden_field :markup, value: sheet.markup %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit onclick: "customSubmit(event)" %>
   </div>
 <% end %>
