@@ -78,7 +78,7 @@ class DossiersController < ApplicationController
 
   def publish
     require_relative '../lib/s3folderupload.rb'
-    @uploader = S3FolderUpload.new(Rails.public_path, 'dev-report.mari.mdaus.com')
+    @uploader = S3FolderUpload.new(Rails.public_path, ENV['AWS_S3_BUCKET'])
     @uploader.upload!
   end
 
