@@ -1,7 +1,13 @@
 function customSubmit(event){
   event.preventDefault();
+  $('#blocks-area').find('.remove').hide();
   $('#sheet_markup').val($('#blocks-area').html());
-  $('.edit_sheet').submit();
+  $('form').submit();
+}
+
+
+function removeParent(e){
+    console.log($(e.target.parentNode.parentNode).remove());
 }
 
 console.log($);
@@ -46,7 +52,7 @@ function getTweetData(){
       "tweet_text": "Maecenas efficitur massa quis nisi tristique volutpat. Vestibulum eget volutpat mi, in faucibus nisl. Vestibulum ante nulla, tempus eget massa at, vulputate eleifend erat. Integer pharetra non lorem a pulvinar. Nunc gravida erat ante, ut tincidunt nisl ultricies ut. ",
       "time": "Monday Jul 11"
     });
-    
+
     return obj;
 
 }
@@ -63,4 +69,5 @@ $(document).ready(function(){
     editor = ContentTools.EditorApp.get();
     editor.init('[data-editable], [data-fixture]', 'data-name');
   });
+  $('.remove').show();
 });

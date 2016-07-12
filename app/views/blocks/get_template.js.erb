@@ -4,4 +4,8 @@ $(block).find('.drop-upload').each(function(){
   initDragUpload(this);
 });
 initDragUpload($(block).find('.drop-upload')[0]);
+$(block).prepend('<a><span onclick="removeParent(event)" class="remove">✖</span></a>');
+/*$('.remove').click(function(){
+    $(block).remove();
+});*/
 //initWYSWYG($(block).find('.text-editable')[0]);

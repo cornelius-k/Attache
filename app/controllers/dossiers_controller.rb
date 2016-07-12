@@ -25,10 +25,10 @@ class DossiersController < ApplicationController
   # POST /dossiers.json
   def create
     @dossier = Dossier.new(dossier_params)
-
+    @dossier.sheets.new(template: 'summary')
     respond_to do |format|
       if @dossier.save
-        format.html { redirect_to @dossier, notice: 'Dossier was successfully created.' }
+        format.html { redirect_to @dossier, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @dossier }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class DossiersController < ApplicationController
   def destroy
     @dossier.destroy
     respond_to do |format|
-      format.html { redirect_to dossiers_url, notice: 'Dossier was successfully destroyed.' }
+      format.html { redirect_to dossiers_url, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

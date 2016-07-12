@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :title %>
     <%= f.text_area :title %>
-  </div>
+  </div> -->
 
   <div class="field">
-    <%= f.label :template %>
+    <%= f.label "Template Name" %>
     <%= f.text_area :template %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :dossier_id %>
     <%= f.text_field :dossier_id %>
-  </div>
+  </div> -->
 
 
   <div class="field">
-    <%= f.label :markup %>
+    <%= f.label "Content:"%>
     <%= link_to "Add Item of Interest Block", block_template_path(:type => 'top_ioi'), :remote => true %>
     <%= link_to "Add Three Column Block", block_template_path(:type => 'three_column'), :remote => true %>
 

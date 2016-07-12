@@ -32,3 +32,13 @@
   margin:0;
   font-size:12px;
 }
+
+.block .remove{
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 25px;
+  float:right;
+}
+.block .remove:hover{
+  color:#808080;
+}

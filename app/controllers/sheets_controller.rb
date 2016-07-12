@@ -30,7 +30,7 @@ class SheetsController < ApplicationController
 
     respond_to do |format|
       if @sheet.save
-        format.html { redirect_to [@dossier, @sheet], notice: 'Sheet was successfully created.' }
+        format.html { redirect_to dossier_sheets_path(@dossier, @sheet), notice: 'Sheet was successfully created.' }
         format.json { render :show, status: :created, location: @sheet }
       else
         format.html { render :new }
@@ -44,8 +44,8 @@ class SheetsController < ApplicationController
   def update
     respond_to do |format|
       if @sheet.update(sheet_params)
-        format.html { redirect_to dossier_sheet_path(@dossier, @sheet), notice: 'Sheet was successfully updated. ' + sheet_params.to_json }
-        format.json { render :show, status: :ok, location: dossier_sheet_path(@dossier, @sheet) }
+        format.html { redirect_to preview_template_path(@dossier, @sheet.template), notice: 'Sheet was successfully updated. ' }
+        format.json { render :preview, status: :ok, location: preview_template_path(@dossier, @sheet.template)  }
       else
         format.html { render :edit }
         format.json { render json: @sheet.errors, status: :unprocessable_entity }
