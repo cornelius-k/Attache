@@ -1,3 +1,7 @@
-$("#blocks-area").append("<%= escape_javascript(render partial: 'top_ioi', locals: {blockUID: @blockUID}) %>");
-var holder = $('[data-block-uid="<%= escape_javascript(@blockUID) %>"]')[0];
-initDragUpload(holder);
+$("#blocks-area").append("<%= escape_javascript(render partial: @type, locals: {blockUID: @blockUID}) %>");
+var block = $('[data-block-uid="<%= escape_javascript(@blockUID) %>"]')[0];
+$(block).find('.drop-upload').each(function(){
+  initDragUpload(this);
+});
+initDragUpload($(block).find('.drop-upload')[0]);
+//initWYSWYG($(block).find('.text-editable')[0]);

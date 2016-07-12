@@ -29,7 +29,9 @@
 
   <div class="field">
     <%= f.label :markup %>
-    <%= link_to "Add Block", block_template_path(:type => 'top_ioi'), :remote => true %>
+    <%= link_to "Add Item of Interest Block", block_template_path(:type => 'top_ioi'), :remote => true %>
+    <%= link_to "Add Three Column Block", block_template_path(:type => 'three_column'), :remote => true %>
+
     <div id="blocks-area">
       <%= raw sheet.markup %>
     </div>

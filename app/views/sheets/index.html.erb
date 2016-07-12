@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= javascript_include_tag :sheets %>
 
 <h1>Sheets</h1>
 
@@ -7,7 +8,7 @@
     <tr>
       <th>Title</th>
       <th>Template</th>
-      <th>Dossier</th>
+      <th>Belongs To:</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +18,7 @@
       <tr>
         <td><%= sheet.title %></td>
         <td><%= sheet.template %></td>
-        <td><%= sheet.dossier %></td>
+        <td><%= @dossier.title %></td>
         <td><%= link_to 'Show', dossier_sheet_path(@dossier, sheet) %></td>
         <td><%= link_to 'Edit', edit_dossier_sheet_path(@dossier, sheet) %></td>
         <td><%= link_to 'Destroy', [@dossier, sheet], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +30,10 @@
 <br>
 
 <%= link_to 'New Sheet', new_dossier_sheet_path(@dossier) %>
+<!-- 
+<h1> Automation </h1>
+
+<a href="#" id="get-tweets" onclick="showTweetData(event)" class="btn btn-default">Get Tweet Data</a>
+<pre class="code-zone"></pre>
+<%= link_to "Render as content", block_template_path(:type => 'three_column'), :remote => true %>
+<div id="blocks-area" class="index"></div> -->

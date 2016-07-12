@@ -11,6 +11,24 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min
+ *= require content-tools.min
  *= require_tree .
  *= require_self
  */
+
+.box{
+  background-color: #e5e5e5;
+
+}
+.box .title{
+  margin-top:5px;
+  font-size: 14px;
+}
+.box .date{
+  margin:0;
+}
+
+.box .text{
+  margin:0;
+  font-size:12px;
+}
