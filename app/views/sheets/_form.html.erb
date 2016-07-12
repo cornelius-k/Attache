@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :template %>
-    <%= f.text_area :template %>
+    <%= f.label "Template Name" %>
+    <%= f.text_field :template %>
   </div>
 
   <div class="field">
@@ -26,19 +26,19 @@
     <%= f.text_field :dossier_id %>
   </div>
 
-
+  <div class="actions">
+    <%= f.submit onclick: "customSubmit(event)" %>
+  </div>
   <div class="field">
-    <%= f.label :markup %>
+    <%= f.label "Actions:"%>
     <%= link_to "Add Item of Interest Block", block_template_path(:type => 'top_ioi'), :remote => true %>
     <%= link_to "Add Three Column Block", block_template_path(:type => 'three_column'), :remote => true %>
-
+    <hr>
     <div id="blocks-area">
       <%= raw sheet.markup %>
     </div>
     <%= f.hidden_field :markup, value: sheet.markup %>
   </div>
 
-  <div class="actions">
-    <%= f.submit onclick: "customSubmit(event)" %>
-  </div>
+
 <% end %>

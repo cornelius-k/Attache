@@ -32,3 +32,37 @@
   margin:0;
   font-size:12px;
 }
+
+
+.block.row{
+  margin-bottom: 40px;
+}
+.block.row h2{
+  margin-bottom: 20px;
+}
+.block .remove{
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  float:right;
+  color:#b5b5b5;
+}
+.block .remove:hover{
+  color:#808080;
+  cursor: default;
+}
+.drop-upload.large{
+
+}
+.three-column .drop-upload{
+  margin-top: 10px;
+}
+.drop-upload{
+  background:#eee;
+}
+.drop-upload.hover{
+}
+.drop-upload.has-image{
+  border-style: none;
+  border-radius: none;
+}

@@ -21,7 +21,7 @@ function initDragUpload(holder){
     };
     console.log(file);
     reader.readAsDataURL(file);
-
+    $(this).addClass('has-image');
     return false;
   }
 
