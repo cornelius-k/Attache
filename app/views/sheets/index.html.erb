@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 <%= javascript_include_tag :sheets %>
 
-<h1>Sheets</h1>
+<h1><%= @dossier.title %> Sheets</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Template</th>
-      <th>Belongs To:</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +14,8 @@
   <tbody>
     <% @sheets.each do |sheet| %>
       <tr>
-        <td><%= sheet.title %></td>
-        <td><%= sheet.template %></td>
-        <td><%= @dossier.title %></td>
-        <td><%= link_to 'Show', dossier_sheet_path(@dossier, sheet) %></td>
+        <td><strong><%= sheet.template %></strong></td>
+        <td><%= link_to 'Show', preview_template_path(@dossier, sheet.template) %></td>
         <td><%= link_to 'Edit', edit_dossier_sheet_path(@dossier, sheet) %></td>
         <td><%= link_to 'Destroy', [@dossier, sheet], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,7 +26,7 @@
 <br>
 
 <%= link_to 'New Sheet', new_dossier_sheet_path(@dossier) %>
-<!-- 
+<!--
 <h1> Automation </h1>
 
 <a href="#" id="get-tweets" onclick="showTweetData(event)" class="btn btn-default">Get Tweet Data</a>
