@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   get 'blocks/:type' => 'blocks#get_template', as: 'block_template'
 
-  get 'dossiers/:id/preview' => 'dossiers#preview'
-  get 'dossiers/:id/preview/:sheet_template' => 'dossiers#preview'
+  get 'dossiers/:id/preview' => 'dossiers#preview', as: 'preview'
+  get 'dossiers/:id/preview/:sheet_template' => 'dossiers#preview', as: 'preview_template'
 
   root to: 'dossiers#index'
 

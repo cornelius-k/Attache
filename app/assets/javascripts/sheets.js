@@ -46,7 +46,7 @@ function getTweetData(){
       "tweet_text": "Maecenas efficitur massa quis nisi tristique volutpat. Vestibulum eget volutpat mi, in faucibus nisl. Vestibulum ante nulla, tempus eget massa at, vulputate eleifend erat. Integer pharetra non lorem a pulvinar. Nunc gravida erat ante, ut tincidunt nisl ultricies ut. ",
       "time": "Monday Jul 11"
     });
-    
+
     return obj;
 
 }
@@ -57,10 +57,11 @@ function showTweetData(e){
 }
 
 
-$(document).ready(function(){
+jQuery(document).ready(function($){
   $('.drop-upload').each(function(){
     initDragUpload(this);
     editor = ContentTools.EditorApp.get();
     editor.init('[data-editable], [data-fixture]', 'data-name');
+    console.log(editor, 'here');
   });
 });
