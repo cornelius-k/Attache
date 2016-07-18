@@ -83,7 +83,9 @@ class DossiersController < ApplicationController
   end
 
   def preview
-    @sheet = @dossier.sheets.where(template: params[:sheet_template]).first
+
+    @template = params[:sheet_template] || "summary"
+    @sheet = @dossier.sheets.where(template: @template).first
   end
 
   private

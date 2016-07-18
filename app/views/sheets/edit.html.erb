@@ -1,9 +1,8 @@
-<h1>Edit <%= @sheet.template %></h1>
+<h1>edit <%= @sheet.template %> sheet</h1>
+
+<%= link_to 'Show', dossier_sheet_path(@dossier, @sheet) %> |
+<%= link_to 'Back', dossier_sheets_path(@dossier) %>
 
 <%= javascript_include_tag :sheets %>
 
 <%= render 'form', sheet: @sheet %>
-
-
-<%= link_to 'Show', dossier_sheet_path(@dossier, @sheet) %> |
-<%= link_to 'Back', dossier_sheets_path(@dossier) %>

@@ -27,7 +27,7 @@ function initDragUpload(holder){
     };
     console.log(file);
     reader.readAsDataURL(file);
-
+    $(this).addClass('has-image');
     return false;
   }
 
@@ -63,11 +63,12 @@ function showTweetData(e){
 }
 
 
-$(document).ready(function(){
+jQuery(document).ready(function($){
   $('.drop-upload').each(function(){
     initDragUpload(this);
     editor = ContentTools.EditorApp.get();
     editor.init('[data-editable], [data-fixture]', 'data-name');
+    console.log(editor, 'here');
   });
   $('.remove').show();
 });
