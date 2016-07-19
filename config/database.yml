@@ -18,3 +18,10 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+heroku:
+  adapter: postgresql
+  database: attache
+  pool: 5
+  timeout: 5000
+  
