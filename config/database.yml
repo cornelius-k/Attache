@@ -15,7 +15,7 @@ test:
 
 production:
   adapter: sqlite3
-  database: db/production.sqlite3
+  database: <%= ENV['ATTACHE_DB_PATH'] %>
   pool: 5
   timeout: 5000
 
@@ -24,4 +24,3 @@ heroku:
   database: attache
   pool: 5
   timeout: 5000
-  
