@@ -44,7 +44,7 @@ class SheetsController < ApplicationController
   def update
     respond_to do |format|
       if @sheet.update(sheet_params)
-        format.html { redirect_to preview_template_path(@dossier, @sheet.template), notice: 'Sheet was successfully updated. ' }
+        format.html { redirect_to dossier_sheets_path(@dossier, @sheet.template), notice: 'Sheet was successfully updated. ' }
         format.json { render :preview, status: :ok, location: preview_template_path(@dossier, @sheet.template)  }
       else
         format.html { render :edit }
