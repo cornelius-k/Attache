@@ -38,6 +38,7 @@ ___
 * Before running in production precompile assets with
     ```shell
     rake assets:precompile
+    
     rake non_digested
     ```
 
