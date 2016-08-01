@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class DossierTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+test "should not save dossier without title" do
+  dossier = Dossier.new
+  assert_not dossier.save
+end
+
 end
